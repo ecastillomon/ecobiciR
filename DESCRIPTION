@@ -1,0 +1,26 @@
+Package: ecovizR
+Title: Acercando los datos de Ecobici a la comunidad
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Esteban",
+           family = "Castillo",
+           role = c("aut", "cre"),
+           email = "est092@gmail.com",
+           comment = c(ORCID = "0000-0002-8184-4576"))
+Description: What the package does (one paragraph).
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    dplyr,
+    lubridate,
+    vroom,
+    zoo,
+    jsonlite,
+    rlang
+Depends: 
+    R (>= 2.10)
+Suggests: 
+    sf

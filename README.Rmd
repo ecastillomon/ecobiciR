@@ -1,0 +1,83 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# ecovizR
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+El objetivo de este paquete es facilitar el acceso a los datos públicos mediante R, ayudando a que las personas de habla hispana tengan ejemplos divertidos para aprender sobre programación. A su vez, se busca fomentar el uso de la bicicleta, al hacer más accesible cualquier análisis sobre un sistema de bicicletas compartidas. 
+
+Todos los datos se obtienen del sistema de bicicletas compartidas [https://www.ecobici.cdmx.gob.mx](Ecobici) de la Ciudad de México. 
+
+## Instalación
+
+Puedes instalar la versión más reciente del paquete instalando desde github.
+
+``` r
+devtools::install_github("ecastillomon/ecovizR")
+```
+
+## Ejemplo
+
+Para descargar los viajes movimientos de un mes, puedes usar la función get_trips(month, year) para descargar los datos de un mes para el sistema de bicicletas compartidas de la ciudad de México. 
+
+```{r example}
+library(ecovizR)
+
+df_viajes=get_trips(11,2020)
+
+glimpse(df_viajes)
+
+
+```
+
+Para obtener un agregado por estación con el número de arribos y retiros en intervalos de 15 minutos, junto con una suma acumulada de la última hora, usa la función get_daily_counts
+
+
+```{r cars}
+df_viajes_diarios=get_daily_counts(11,2020)
+glimpse(df_viajes_diarios)
+```
+Si quieres hacer llamadas a la API de Ecobici, puedes usar las funciones update_ecobici_status, y update_ecobici_estaciones. Éstas harán consultas en tiempo real.
+
+
+```{r}
+df_disponibilidad=update_ecobici_status()
+
+df_estaciones=update_ecobici_estaciones()
+
+glimpse(df_disponibilidad)
+```
+
+
+Para hacer más fácil la instalación se omite el paquete sf. El paquete sf sirve para utilizar datos geoespaciales en R. Puedes ver una guía para instalar sf si tienes problemas al hacerlo desde R.
+
+[https://thinkr.fr/Installation_spatial_EN.html](https://thinkr.fr/Installation_spatial_EN.html)
+
+La función  get_daily_counts_sf traerá la misma información que get_daily_counts pero regresará un objeto tipo sf. Esto facilita graficarlo y luego hacer operaciones de cómputo geográfico sobre los datos.
+
+```{r pressure, echo = FALSE}
+
+sf_viajes_diarios=get_daily_counts_sf(11,2020)
+
+
+ggplot()+geom_sf(data=sf_viajes_diarios)
+```
+
+Si tienes alguna sugerencia o contribución, escríbeme en:
+Email: [est092@gmail.com](est092@gmail.com)
+Github: [https://github.com/ecastillomon](ecastillomon)
+

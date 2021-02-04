@@ -39,7 +39,7 @@ library(ecovizR)
 
 df_viajes=get_trips(11,2020)
 
-glimpse(df_viajes)
+dplyr::glimpse(df_viajes)
 
 
 ```
@@ -49,7 +49,7 @@ Para obtener un agregado por estación con el número de arribos y retiros en in
 
 ```{r cars}
 df_viajes_diarios=get_daily_counts(11,2020)
-glimpse(df_viajes_diarios)
+dplyr::glimpse(df_viajes_diarios)
 ```
 Si quieres hacer llamadas a la API de Ecobici, puedes usar las funciones update_ecobici_status, y update_ecobici_estaciones. Éstas harán consultas en tiempo real.
 
@@ -59,7 +59,7 @@ df_disponibilidad=update_ecobici_status()
 
 df_estaciones=update_ecobici_estaciones()
 
-glimpse(df_disponibilidad)
+dplyr::glimpse(df_disponibilidad)
 ```
 
 
@@ -74,10 +74,12 @@ La función  get_daily_counts_sf traerá la misma información que get_daily_cou
 sf_viajes_diarios=get_daily_counts_sf(11,2020)
 
 
-ggplot()+geom_sf(data=sf_viajes_diarios)
+ggplot2::ggplot()+ggplot2::geom_sf(data=sf_viajes_diarios)
 ```
 
 Si tienes alguna sugerencia o contribución, escríbeme en:
-Email: [est092@gmail.com](est092@gmail.com)
-Github: [https://github.com/ecastillomon](ecastillomon)
+
+- Email: [est092@gmail.com](est092@gmail.com)
+
+- Github: [https://github.com/ecastillomon](ecastillomon)
 

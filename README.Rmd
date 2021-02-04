@@ -69,13 +69,16 @@ Para hacer más fácil la instalación se omite el paquete sf. El paquete sf sir
 
 La función  get_daily_counts_sf traerá la misma información que get_daily_counts pero regresará un objeto tipo sf. Esto facilita graficarlo y luego hacer operaciones de cómputo geográfico sobre los datos.
 
-```{r pressure, echo = FALSE}
+``` r
 
 sf_viajes_diarios=get_daily_counts_sf(11,2020)
 
 
 ggplot2::ggplot()+ggplot2::geom_sf(data=sf_viajes_diarios)
 ```
+
+<img src="https://gitlab.com/est_092/ecobici-paper/-/raw/master/output/sf_example.png" alt="hi" class="inline"/>
+
 
 Si tienes alguna sugerencia o contribución, escríbeme en:
 

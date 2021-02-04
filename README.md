@@ -110,8 +110,8 @@ dplyr::glimpse(df_disponibilidad)
 #> Columns: 4
 #> $ stationsStatus.id                 <int> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, …
 #> $ stationsStatus.status             <chr> "OPN", "OPN", "OPN", "OPN", "OPN", …
-#> $ stationsStatus.availability.bikes <int> 4, 9, 17, 7, 1, 14, 10, 6, 4, 9, 10…
-#> $ stationsStatus.availability.slots <int> 22, 2, 18, 8, 10, 1, 13, 5, 20, 27,…
+#> $ stationsStatus.availability.bikes <int> 5, 9, 17, 7, 1, 14, 10, 6, 4, 9, 10…
+#> $ stationsStatus.availability.slots <int> 21, 2, 18, 8, 10, 1, 13, 5, 20, 27,…
 ```
 
 Para hacer más fácil la instalación se omite el paquete sf. El paquete
@@ -125,16 +125,15 @@ get\_daily\_counts pero regresará un objeto tipo sf. Esto facilita
 graficarlo y luego hacer operaciones de cómputo geográfico sobre los
 datos.
 
-    #> Rows: 292,055
-    #> Columns: 9
-    #> Delimiter: ","
-    #> chr [5]: Genero_Usuario, Fecha_Retiro, Hora_Retiro, Fecha_Arribo, Hora_Arribo
-    #> dbl [4]: Edad_Usuario, Bici, Ciclo_Estacion_Retiro, Ciclo_Estacion_Arribo
-    #> 
-    #> Use `spec()` to retrieve the guessed column specification
-    #> Pass a specification to the `col_types` argument to quiet this message
+``` r
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+sf_viajes_diarios=get_daily_counts_sf(11,2020)
+
+
+ggplot2::ggplot()+ggplot2::geom_sf(data=sf_viajes_diarios)
+```
+
+<img src="https://gitlab.com/est_092/ecobici-paper/-/raw/master/output/sf_example.png" alt="hi" class="inline"/>
 
 Si tienes alguna sugerencia o contribución, escríbeme en:
 
